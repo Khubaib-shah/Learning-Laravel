@@ -12,3 +12,17 @@
 
 
 
+
+<!-- This is is the blade expression of listing.blade.php  -->
+{{-- This syntex is much cleaner --}}
+<h1> {{ $heading }}</h1>
+
+@foreach ($listings as $listing): 
+    <h2>{{ $listing['id'] }}</h2>
+    <h2>{{ $listing['title'] }}</h2>
+    <p>{{ $listing['description'] }}</p>
+@endforeach; 
+<!-- This displays the listings data that was fetched in the controller (web.php route). -->
+
+
+
