@@ -20,7 +20,7 @@ Route::get('/response', function () {
 });
 
 
-Route::get('posts/{_id}', function ($_id) {
+Route::get('/posts/{_id}', function ($_id) {
     dd($_id);
     return response("Post " . $_id);
 })->where('_id', '[0-9]+');
