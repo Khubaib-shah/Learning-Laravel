@@ -14,7 +14,6 @@ class LisitngController extends Controller
 
             "listings" => Listing::all()
         ]);
-
     }
 
 
@@ -24,9 +23,14 @@ class LisitngController extends Controller
         return view('listing', [
             "listing" => $listing
         ]);
-
     }
-
-
-
 }
+
+
+// Common Resource Routes: crud
+// index - show all listings
+// show - show single listing
+// create - show create form new listing
+// store -  store new listing
+// edit - show form to edit listing
+// destroy -  delete listing
