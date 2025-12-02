@@ -7,14 +7,14 @@
 
     <!-- This is is the reguler expression of listing.php  -->
     <!--
-                                                                                                <h1> <?php echo $heading; ?></h1>
+                                                                                                    <h1> <?php echo $heading; ?></h1>
 
-                                                                                                <?php foreach ($listings as $listing): ?>
-                                                                                                    <h2><?php    echo $listing['id']; ?></h2>
-                                                                                                    <h2><?php    echo $listing['title']; ?></h2>
-                                                                                                    <p><?php    echo $listing['description']; ?></p>
-                                                                                                <?php endforeach; ?>
-                                                                                                -->
+                                                                                                    <?php foreach ($listings as $listing): ?>
+                                                                                                        <h2><?php    echo $listing['id']; ?></h2>
+                                                                                                        <h2><?php    echo $listing['title']; ?></h2>
+                                                                                                        <p><?php    echo $listing['description']; ?></p>
+                                                                                                    <?php endforeach; ?>
+                                                                                                    -->
     <!-- This displays the listings data that was fetched in the controller (web.php route). -->
 
 
@@ -60,7 +60,7 @@
                         <img class="hidden w-48 mr-6 md:block" src="{{ asset('images/no-image.png') }}" alt="" />
                         <div>
                             <h3 class="text-2xl">
-                                <a href="/listings/{{ $listing->id }}">{{ $listing->title}}</a>
+                                <a href="/listing/{{ $listing->id }}">{{ $listing->title}}</a>
                             </h3>
                             <div class="text-xl font-bold mb-4">{{ $listing->company }}</div>
                             <ul class="flex">

@@ -7,20 +7,19 @@ use Illuminate\Support\Facades\Route;
 
 // Get all Listings
 Route::get('/', function () {
-    
-    return view('listings' , [
+
+    return view('listings', [
 
         "heading" => 'Listings', // the first one is key or we can say variable name... and the second is Value it can be any thing from just a value to objects arrays 
-        
+
         "listings" => Listing::all()
     ]);
 });
 
 // Get single Listing
-Route::get('/listings/{id}', function ($id) {
-    
-    return view('listing' , [
-        "listings" => Listing::find($id)
+Route::get('/listing/{listing}', function (Listing $listing) {
+    return view('listing', [
+        "listing" => $listing
     ]);
 });
 
@@ -43,7 +42,8 @@ Route::get('/posts/{_id}', function ($_id) {
     return response("Post " . $_id);
 })->where('_id', '[0-9]+');
 
-Route::get('/search', function (Request  $request) {
+
+Route::get('/search', function (Request $request) {
     // How Query works
     // /search?name=khubaib&age=21
     return $request->name . ' ' . $request->age; //output khubaib 21 
