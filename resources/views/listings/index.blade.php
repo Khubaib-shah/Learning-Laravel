@@ -8,12 +8,12 @@
     <!-- This is is the reguler expression of listing.php  -->
 
     <!--
-        <?php foreach ($listings as $listing): ?>
-        <h2><?php    echo $listing['id']; ?></h2>
-        <h2><?php    echo $listing['title']; ?></h2>
-        <p><?php    echo $listing['description']; ?></p>
-        <?php endforeach; ?>
-        -->
+            <?php foreach ($listings as $listing): ?>
+            <h2><?php    echo $listing['id']; ?></h2>
+            <h2><?php    echo $listing['title']; ?></h2>
+            <p><?php    echo $listing['description']; ?></p>
+            <?php endforeach; ?>
+            -->
     <!-- This displays the listings data that was fetched in the controller (web.php route). -->
 
 
