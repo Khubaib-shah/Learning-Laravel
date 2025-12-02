@@ -1,27 +1,16 @@
 <?php
 
+use App\Http\Controllers\LisitngController;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
 // Get all Listings
-Route::get('/', function () {
-
-    return view('listings', [
-
-        "heading" => 'Listings', // the first one is key or we can say variable name... and the second is Value it can be any thing from just a value to objects arrays 
-
-        "listings" => Listing::all()
-    ]);
-});
+Route::get('/', [LisitngController::class, 'index']);
 
 // Get single Listing
-Route::get('/listing/{listing}', function (Listing $listing) {
-    return view('listing', [
-        "listing" => $listing
-    ]);
-});
+Route::get('/listing/{listing}', [LisitngController::class, 'show']);
 
 
 
