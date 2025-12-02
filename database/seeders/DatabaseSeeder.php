@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // to seed data uncomment this line 
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // if you want to again refresh data use this comman  php artisan migrate:refresh 
+
+        //  and again if you want to add data use php artisan migrate:refresh --seed
     }
 }
