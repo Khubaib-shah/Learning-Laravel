@@ -1,33 +1,29 @@
 <?php
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+// Get all Listings
 Route::get('/', function () {
     
     return view('listings' , [
 
         "heading" => 'Listings', // the first one is key or we can say variable name... and the second is Value it can be any thing from just a value to objects arrays 
         
-        "listings" => [
-           [ 
-            "id" => 1,
-           'title' => "Angry Bird",
-           "description" => "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
-           ],
-           [ 
-            "id" => 2,
-           'title' => "Angry Bird",
-           "description" => "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
-           ],
-           [ 
-            "id" => 3,
-           'title' => "Angry Bird",
-           "description" => "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
-           ]
-        ]
+        "listings" => Listing::all()
     ]);
 });
+
+// Get single Listing
+Route::get('/listings/{id}', function ($id) {
+    
+    return view('listing' , [
+        "listings" => Listing::find($id)
+    ]);
+});
+
 
 
 Route::get('/hello', function () {

@@ -3,9 +3,9 @@
 <h1> <?php echo $heading; ?></h1>
 
 <?php foreach ($listings as $listing): ?>
-    <h2><?php echo $listing['id']; ?></h2>
-    <h2><?php echo $listing['title']; ?></h2>
-    <p><?php echo $listing['description']; ?></p>
+    <h2><?php    echo $listing['id']; ?></h2>
+    <h2><?php    echo $listing['title']; ?></h2>
+    <p><?php    echo $listing['description']; ?></p>
 <?php endforeach; ?>
 -->
 <!-- This displays the listings data that was fetched in the controller (web.php route). -->
@@ -18,11 +18,11 @@
 
 {{-- <h1> {{ $heading }}</h1>
 
-@foreach ($listings as $listing): 
-    <h2>{{ $listing['id'] }}</h2>
-    <h2>{{ $listing['title'] }}</h2>
-    <p>{{ $listing['description'] }}</p>
-@endforeach;  --}}
+@foreach ($listings as $listing):
+<h2>{{ $listing['id'] }}</h2>
+<h2>{{ $listing['title'] }}</h2>
+<p>{{ $listing['description'] }}</p>
+@endforeach; --}}
 
 <!-- This displays the listings data that was fetched in the controller (web.php route). -->
 
@@ -34,25 +34,25 @@
 
 <h1> {{ $heading }}</h1>
 
-@foreach ($listings as $listing); 
-    <h2>{{ $listing['id'] }}</h2>
-    <h2>{{ $listing['title'] }}</h2>
-    <p>{{ $listing['description'] }}</p>
+@foreach ($listings as $listing);
+<h2>{{ $listing['id'] }}</h2>
+<h2>{{ $listing['title'] }}</h2>
+<p>{{ $listing['description'] }}</p>
 @endforeach;
 @endif --}}
 
 
 {{-- This is the second way of doing if statement --}}
-@unless(count($listings) == 0 )
+@unless(count($listings) == 0)
 
-<h1> {{ $heading }}</h1>
+    <h1> {{ $heading }}</h1>
 
-@foreach ($listings as $listing);
-    <h2>{{ $listing['id'] }}</h2>
-    <h2>{{ $listing['title'] }}</h2>
-    <p>{{ $listing['description'] }}</p>
-@endforeach;
+    @foreach ($listings as $listing)
+        <h2><a href="/listings/{{ $listing['id'] }}">{{ $listing['id'] }}</a></h2>
+        <h2>{{ $listing['title'] }}</h2>
+        <p>{{ $listing['description'] }}</p>
+    @endforeach;
 
-@else 
-<p>No listing found</p>
+@else
+    <p>No listing found</p>
 @endunless
