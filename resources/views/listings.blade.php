@@ -43,16 +43,17 @@
 
 
 {{-- This is the second way of doing if statement --}}
+<h1> {{ $heading }}</h1>
+
 @unless(count($listings) == 0)
 
-    <h1> {{ $heading }}</h1>
 
     @foreach ($listings as $listing)
-        <h2><a href="/listings/{{ $listing['id'] }}">{{ $listing['id'] }}</a></h2>
-        <h2>{{ $listing['title'] }}</h2>
-        <p>{{ $listing['description'] }}</p>
-    @endforeach;
+        <h2><a href="/listings/{{ $listing['id'] }}">{{ $listing['title'] }}</a></h2>
+        <h4>{{ $listing['tags'] }}</h2>
+            <p>{{ $listing['description'] }}</p>
+    @endforeach
 
 @else
-    <p>No listing found</p>
-@endunless
+        <p>No listing found</p>
+    @endunless
