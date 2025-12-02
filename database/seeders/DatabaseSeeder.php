@@ -24,28 +24,30 @@ class DatabaseSeeder extends Seeder
 
 
         // this how we create and seed static data
-        Listing::create(
-            [
-                'title' => 'Laravel Developer Needed',
-                'tags' => 'Laravel,PHP,Backend',
-                'company' => 'Tech Solutions',
-                'location' => 'New York, USA',
-                'email' => 'hr@techsolutions.com',
-                'website' => 'https://techsolutions.com',
-                'description' => 'We are looking for a skilled Laravel developer to join our team.',
-            ]
-        );
+        // Listing::create(
+        //     [
+        //         'title' => 'Laravel Developer Needed',
+        //         'tags' => 'Laravel,PHP,Backend',
+        //         'company' => 'Tech Solutions',
+        //         'location' => 'New York, USA',
+        //         'email' => 'hr@techsolutions.com',
+        //         'website' => 'https://techsolutions.com',
+        //         'description' => 'We are looking for a skilled Laravel developer to join our team.',
+        //     ]
+        // );
 
-        Listing::create([
-            'title' => 'Frontend Engineer',
-            'tags' => 'React,JavaScript,Frontend',
-            'company' => 'Web Innovators',
-            'location' => 'San Francisco, USA',
-            'email' => 'jobs@webinnovators.com',
-            'website' => 'https://webinnovators.com',
-            'description' => 'Seeking a frontend engineer with experience in React and modern JS.',
-        ]);
+        // Listing::create([
+        //     'title' => 'Frontend Engineer',
+        //     'tags' => 'React,JavaScript,Frontend',
+        //     'company' => 'Web Innovators',
+        //     'location' => 'San Francisco, USA',
+        //     'email' => 'jobs@webinnovators.com',
+        //     'website' => 'https://webinnovators.com',
+        //     'description' => 'Seeking a frontend engineer with experience in React and modern JS.',
+        // ]);
+
+        Listing::factory(6)->create();
 
     }
-
+ 
 }
