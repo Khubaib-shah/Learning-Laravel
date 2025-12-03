@@ -49,13 +49,44 @@ class LisitngController extends Controller
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
-        // dd($formFields);
 
         Listing::create($formFields);
         return redirect('/')->with('message', 'Form submitted successfully');
 
     }
 
+
+    // show Edit Listing
+    public function edit(Listing $listing)
+    {
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
+
+
+    // Update Listing Data
+    public function update(Request $request, Listing $listing)
+    {
+
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => ['required'],
+            'logo' => 'nullable|image|max:2048',
+            'location' => 'required',
+            'email' => ['required', 'email'],
+            'website' => 'required',
+            'description' => 'required',
+            'tags' => 'required',
+        ]);
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        $listing->update($formFields);
+        return redirect('/')->with('message', 'Form submitted successfully');
+
+    }
 }
 
 
