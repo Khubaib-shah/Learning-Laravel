@@ -23,6 +23,12 @@ class LisitngController extends Controller
             "listing" => $listing
         ]);
     }
+
+    // Create Listing
+    public function create()
+    {
+        return view('listings.create');
+    }
 }
 
 

@@ -1,0 +1,2 @@
+Install clockwork extension just to inspect the api calls and request 
+and then attached it to project by running =>'composer require itsgoingd/clockwork' this command

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Route;
 // Get all Listings
 Route::get('/', [LisitngController::class, 'index']);
 
+// Create Listing
+Route::get('/listing/create', [LisitngController::class, 'create']);
+
 // Get single Listing
 Route::get('/listing/{listing}', [LisitngController::class, 'show']);
 
