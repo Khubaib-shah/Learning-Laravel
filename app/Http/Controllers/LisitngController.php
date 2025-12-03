@@ -12,7 +12,7 @@ class LisitngController extends Controller
     public function index()
     {
         return view('listings.index', [
-            "listings" => Listing::latest()->filter(request(key: ['tag', 'search']))->get()
+            "listings" => Listing::latest()->filter(request(key: ['tag', 'search']))->simplePaginate(2)
         ]);
     }
 
