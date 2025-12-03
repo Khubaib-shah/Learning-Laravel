@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 // to create controller we run this command 'php artisan make:controller LisitngController'
 class LisitngController extends Controller
 {
@@ -15,7 +16,6 @@ class LisitngController extends Controller
         ]);
     }
 
-
     // show single listing
     public function show(Listing $listing)
     {
@@ -24,11 +24,32 @@ class LisitngController extends Controller
         ]);
     }
 
-    // Create Listing
+    // Show Create Form
     public function create()
     {
         return view('listings.create');
     }
+
+    // Store Listing Data
+    public function store(Request $request)
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => ['required', Rule::unique('listings', "company")],
+            'location' => 'required',
+            'email' => ['required', 'email'],
+            'website' => 'required',
+            'description' => 'required',
+            'tags' => 'required'
+
+        ]);
+        // dd($formFields);
+
+        Listing::create($formFields);
+        return redirect('/');
+
+    }
+
 }
 
 

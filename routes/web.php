@@ -12,11 +12,25 @@ Route::get('/', [LisitngController::class, 'index']);
 // Create Listing
 Route::get('/listing/create', [LisitngController::class, 'create']);
 
+// Store Listing Data
+Route::post('/listing', [LisitngController::class, 'store']);
+
+
+
+
+
 // Get single Listing
 Route::get('/listing/{listing}', [LisitngController::class, 'show']);
 
 
 
+
+
+
+
+
+
+// Learning 
 Route::get('/hello', function () {
     return 'Hello World';
 });
