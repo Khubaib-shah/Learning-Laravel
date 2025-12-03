@@ -21,6 +21,9 @@ Route::get('/listing/{listing}/edit', [LisitngController::class, 'edit']);
 // Update Listing 
 Route::put('/listing/{listing}/edit', [LisitngController::class, 'update']);
 
+// Delete Listing 
+Route::delete('/listing/{listing}', [LisitngController::class, 'destroy']);
+
 
 
 

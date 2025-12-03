@@ -62,8 +62,6 @@ class LisitngController extends Controller
         return view('listings.edit', ['listing' => $listing]);
     }
 
-
-
     // Update Listing Data
     public function update(Request $request, Listing $listing)
     {
@@ -86,6 +84,13 @@ class LisitngController extends Controller
         $listing->update($formFields);
         return redirect('/')->with('message', 'Form submitted successfully');
 
+    }
+
+    // Delete Listing 
+    public function destroy(Listing $listing)
+    {
+        $listing->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully');
     }
 }
 
