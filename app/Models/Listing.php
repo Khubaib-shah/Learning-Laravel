@@ -11,7 +11,7 @@ class Listing extends Model
     use HasFactory;
 
     // To submit the form values  we sue this to add our values in to the data base this is required OR we an use Model::unguard(); Into the AppServiceProvider In the boot function 
-    protected $fillable = ['title', 'company', 'tags', 'location', 'email', 'website', 'description'];
+    protected $fillable = ['title', 'company', 'tags', 'location', 'email', 'website', 'description', 'logo'];
 
     public function scopeFilter($query, array $filters)
     {

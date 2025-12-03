@@ -8,7 +8,7 @@
             <p class="mb-4">Post a gig to find a developer</p>
         </header>
 
-        <form method="POST" action="/listing">
+        <form method="POST" action="/listing" enctype="multipart/form-data">
 
             @csrf
 
@@ -70,31 +70,30 @@
                 @enderror
             </div>
 
-            {{-- <div class="mb-6">
+            <div class="mb-6">
                 <label for="logo" class="inline-block text-lg mb-2">
                     Company Logo
                 </label>
                 <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo"
-                    value="{{ old('logo') }}" />
-                @error('Logo')
-                <p class="text-red-500 text-sm">{{ $message }}</p>
+                    value="{{ old( 'logo') }}" />
+                @error('logo')
+                    <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
-            </div> --}}
+            </div>
 
             <div class="mb-6">
                 <label for="description" class="inline-block text-lg mb-2">
                     Job Description
                 </label>
-                <textarea class="border border-gray-200 rounded p-2 w-full" name="description"
-                    value="{{ old('description') }}" rows="10"
-                    placeholder="Include tasks, requirements, salary, etc"></textarea>
+                <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
+                    placeholder="Include tasks, requirements, salary, etc" value="{{ old('description') }}"></textarea>
                 @error('description')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+                <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black" >
                     Create Gig
                 </button>
 
