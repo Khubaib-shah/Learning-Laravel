@@ -15,6 +15,7 @@ return new class extends Migration {
 
             // 3 here are the actual tables we can add as many as we want 
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // foreign key to link listings to users
             $table->string('title');
             $table->string('logo')->nullable();
             $table->string('tags');

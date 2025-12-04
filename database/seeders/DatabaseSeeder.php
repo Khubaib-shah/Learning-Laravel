@@ -17,7 +17,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // to seed data uncomment this line 
-        User::factory(5)->create();
+        $user =User::factory()->create(
+            [
+                'name' => 'Khubaib Shah',
+                'email' => "khubaib@gmail.com"
+            ]
+        );
 
         // if you want to again refresh data use this comman  php artisan migrate:refresh 
         // and again if you want to add data use php artisan migrate:refresh --seed
@@ -46,8 +51,10 @@ class DatabaseSeeder extends Seeder
         //     'description' => 'Seeking a frontend engineer with experience in React and modern JS.',
         // ]);
 
-        Listing::factory(6)->create();
+        Listing::factory(6)->create([
+            'user_id' => $user->id 
+        ]);
 
     }
- 
+
 }

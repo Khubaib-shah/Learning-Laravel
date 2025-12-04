@@ -11,19 +11,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LisitngController::class, 'index']);
 
 // Create Listing
-Route::get('/listing/create', [LisitngController::class, 'create']);
+Route::get('/listing/create', [LisitngController::class, 'create'])
+    ->middleware('auth');
 
 // Store Listing Data
-Route::post('/listing', [LisitngController::class, 'store']);
+Route::post('/listing', [LisitngController::class, 'store'])->middleware('auth');
 
 // Show Edit Listing 
-Route::get('/listing/{listing}/edit', [LisitngController::class, 'edit']);
+Route::get('/listing/{listing}/edit', [LisitngController::class, 'edit'])->middleware('auth');
 
 // Update Listing 
-Route::put('/listing/{listing}/edit', [LisitngController::class, 'update']);
+Route::put('/listing/{listing}/edit', [LisitngController::class, 'update'])->middleware('auth');
 
 // Delete Listing 
-Route::delete('/listing/{listing}', [LisitngController::class, 'destroy']);
+Route::delete('/listing/{listing}', [LisitngController::class, 'destroy'])->middleware('auth');
 
 // Get single Listing
 Route::get('/listing/{listing}', [LisitngController::class, 'show']);
@@ -32,16 +33,16 @@ Route::get('/listing/{listing}', [LisitngController::class, 'show']);
 
 
 // User Register 
-Route::get('/user/register', [UserController::class, 'create']);
+Route::get('/user/register', [UserController::class, 'create'])->middleware('guest');
 
 // Store User  
 Route::post('/user', [UserController::class, 'store']);
 
 // Logout User  
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // Show Login User  
-Route::get('/user/login', [UserController::class, 'login']);
+Route::get('/user/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 // Login User  
 Route::post('/user/authenticate', [UserController::class, 'authenticate']);

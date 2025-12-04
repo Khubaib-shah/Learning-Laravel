@@ -50,6 +50,9 @@ class LisitngController extends Controller
         }
 
 
+        $formFields['user_id'] = auth()->id();
+
+
         Listing::create($formFields);
         return redirect('/')->with('message', 'Form submitted successfully');
 

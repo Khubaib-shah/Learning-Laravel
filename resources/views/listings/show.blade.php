@@ -43,27 +43,25 @@
             </div>
 
         </x-card>
-        <x-card class="mt-4 p-2 space-x-6 flex items-center gap-6">
-            <a href="/listing/{{ $listing->id }}/edit">
-                <i class="fa-solid fa-pencil">
-                    Edit
-                </i>
-            </a>
 
-            <form method="POST" action="/listing/{{ $listing->id }}">
-                @csrf
-                @method("DELETE")
-                <button>
-                    <i class="fa-solid fa-pencil text-red-500">
-                        Delete
+        @auth
+            @if(auth()->id() === $listing->user_id)
+                <x-card class="mt-4 p-2 space-x-6 flex items-center gap-6">
 
-                    </i>
+                    <a href="/listing/{{ $listing->id }}/edit">
+                        <i class="fa-solid fa-pencil"> Edit </i>
+                    </a>
 
-                </button>
-            </form>
-
-
-        </x-card>
+                    <form method="POST" action="/listing/{{ $listing->id }}">
+                        @csrf
+                        @method("DELETE")
+                        <button>
+                            <i class="fa-solid fa-trash text-red-500"> Delete </i>
+                        </button>
+                    </form>
+                </x-card>
+            @endif
+        @endauth
     </div>
 
 
