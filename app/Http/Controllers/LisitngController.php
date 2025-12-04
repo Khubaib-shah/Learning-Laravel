@@ -95,6 +95,12 @@ class LisitngController extends Controller
         $listing->delete();
         return redirect('/')->with('message', 'Listing deleted successfully');
     }
+
+    // SHow Manage Listing 
+    public function manage()
+    {
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
+    }
 }
 
 
