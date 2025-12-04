@@ -45,6 +45,16 @@
                     </a>
                 </li>
 
+                <li>
+                    <i class="fa-solid fa-door-closed"></i>
+                    <form class="inline" method="POST" action="/logout">
+                        @csrf
+                        <button type="submit">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+
             @else
                 <li>
                     <a href="/user/register" class="hover:text-laravel">
@@ -52,7 +62,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/login" class="hover:text-laravel">
+                    <a href="/user/login" class="hover:text-laravel">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login
                     </a>
